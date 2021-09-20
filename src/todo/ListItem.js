@@ -1,6 +1,51 @@
 import React from "react";
+import { useState } from "react";
 
-class ListItem extends React.Component {
+export default function ListItem(props) {
+  const completedStyle = {
+    fontFamily: "Arial, Helvetica, sans-serif",
+    textDecoration: "line-through",
+    color: "darkgrey",
+  };
+
+  const importantStyle = {
+    backgroundColor: "crimson",
+    boxShadow: "0 0 5px crimson",
+  };
+
+  function deleteTask(name) {
+    props.deleteItem(name);
+  }
+
+  function completedTask(name) {
+    props.completedTask(name);
+  }
+
+  function importantTask(name) {
+    props.importantTask(name);
+  }
+
+  return (
+    <ul>
+      {props.data.map((element) => {
+        return (
+          <li className="list-item" key={element.name}>
+            <input className="checkbox" type="checkbox" checked={element.done === true} onChange={completedTask(element.name)} />
+            <p style={element.done === true ? completedStyle : null}>{element.name}</p>
+            <button className="important" style={element.important === true ? importantStyle : null} onClick={importantTask(element.name)}>
+              ❕
+            </button>
+            <button className="delete" onClick={deleteTask(element.name)}>
+              ❌
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+/* class ListItem extends React.Component {
   deleteTask(name) {
     this.props.deleteItem(name);
   }
@@ -47,3 +92,4 @@ class ListItem extends React.Component {
 }
 
 export default ListItem;
+ */
