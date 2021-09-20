@@ -2,7 +2,6 @@ import React from "react";
 import "./scss/app.scss";
 import ListItem from "./todo/ListItem";
 import { useState } from "react";
-// import addTask from "./todo/AddTodo";
 
 export default function App() {
   const [list, setList] = useState([
@@ -177,50 +176,3 @@ export default function App() {
 }
 
 export default App; */
-
-/* export default function App() {
-      const [list, setList] = useState([
-        { id: 1, name: "Learn JS", done: false, important: false },
-        { id: 2, name: "Learn CSS", done: true, important: false },
-        { id: 3, name: "Learn HTML", done: false, important: false },
-        { id: 4, name: "Learn English", done: false, important: false },
-      ]);
-    
-      function addTask(title) {
-        setList(
-          list.concat([
-            {
-              name,
-              done: false,
-              important: false,
-            },
-          ])
-        );
-      }
-    
-      function deleteItem(id) {
-        setList(list.filter((todo) => todo.id !== id));
-      }
-    
-      function toggleTodo(id) {
-        setList(
-          list.map((todo) => {
-            if (list.id === id) {
-              list.important = !list.important;
-            }
-            return list;
-          })
-        );
-      }
-    
-      function completedTask(id) {
-        setList(
-          list.map((todo) => {
-            if (list.id === id) {
-              list.done = !list.done;
-            }
-            return list;
-          })
-        );
-      }
-    } */
